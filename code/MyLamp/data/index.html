@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- based on https://iro.js.org/ -->
+	<head>
+		<title>MyLamp</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style type="text/css">
+			html, body {
+				background: black;
+				margin: 0;
+				padding: 0;
+				color: white;
+				font-family: sans-serif;
+			}
+			#appcontainer {
+				/* dimensions 100x160 */
+				display: flex;
+				flex-direction: column;
+				height: calc(min(100vh, 160vw) - 20px);
+				width: calc(min(100vh, 160vw) * 0.625 - 22px);
+				margin: 0 auto;
+				padding: 10px;
+			}
+			#pre-selectors {
+				margin: 12px 0 0 0;
+				padding: 0;
+				border: 0;
+				height: calc(min(100vh, 160vw) * 0.625 * 0.25 - 12px);
+				min-height: 40px; /*calc(calc(min(100vh, 160vw) - 20px) * 0.14);*/
+			}
+			#buttons {
+				margin: 12px 0 0 0;
+				text-align: center;
+				flex-grow: 1;
+			}
+			.selector {
+				border: 1px solid white;
+				border-radius: 50%;
+				width: calc(25% - 2px);
+				height: calc(100% - 2px);
+				min-height: 38px;
+				float: left;
+				margin: 0;
+				padding: 0;
+			}
+			.bguardar {
+				border: 1px solid white;
+				border-radius: 20px;
+				background: #808080;
+				color: white;
+				font-size:200%;
+				width: calc(100% - 2px);
+				height: 100%;
+				margin: 0;
+			}
+			.white {
+				background: white;
+			}
+			.red {
+				background: red;
+			}
+			.green {
+				background: green;
+			}
+			.blue {
+				background: blue;
+			}
+		</style>
+		<script type='text/javascript' >
+			function setColor(color) {
+				colorPicker.color.hexString=color;
+			}
+			var xhr = new XMLHttpRequest();
+			function sendColor(hex) {
+				xhr.open('GET', 'do?color=' + hex.substring(1), false); // synchronous
+				xhr.send();
+			}
+			function saveColor() {
+				xhr.open('GET', 'save');
+				xhr.send();
+				alert('Color por defecto guardado!');
+			}
+		</script>
+		<script src="iro.min.js"></script>
+	</head>
+	<body>
+		<div id="appcontainer">
+			<div id="color-picker-container"></div>
+			<div id="pre-selectors">
+				<div class="selector white" onclick='setColor("#ffffff");' ></div>
+				<div class="selector red"   onclick='setColor("#ff0000");' ></div>
+				<div class="selector green" onclick='setColor("#00ff00");' ></div>
+				<div class="selector blue"  onclick='setColor("#0000ff");' ></div>
+			</div>
+			<div id="buttons">
+				<button class="bguardar" onclick='saveColor();'>Guardar</button>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var colorPicker = new iro.ColorPicker("#color-picker-container", {
+				width: document.getElementById("appcontainer").clientWidth-20,
+				borderWidth: 1,
+				borderColor: "#fff",
+				wheelDirection: "clockwise",
+				color: "[RGB]"
+			});
+			colorPicker.on("color:change",
+				function(color) {
+					sendColor(color.hexString);
+				}
+			);
+		</script>
+	</body>
+</html>

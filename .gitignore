@@ -1,0 +1,4 @@
+.DS_Store
+*.FCStd1
+.github
+.npmignore

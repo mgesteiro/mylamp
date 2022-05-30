@@ -49,6 +49,8 @@ This *new* lamp does several *new* things passing through different stages:
 
 **(\*)** The lamp must be connected to same network that the device you want to use to access this portal. If the lamp wasn't able to connect to your network, you should connect to the lamp's WiFi network itself (**MyLamp**/**12345678**).
 
+![control-app](docs/app.png)
+
 
 ## Code
 You can find the ESP-12 (ESP8266 module) code in the [code folder](code/MyLamp/).

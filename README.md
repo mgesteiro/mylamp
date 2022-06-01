@@ -69,6 +69,9 @@ This software uses the SPIFFs local storage of your ESP-12: use [this plugin](ht
 
 A lot can (should?) be done software wise: it's only a barely-minimun working base that -basically- allows you to select and save a color in a very efficient and direct way (**it works in real-time!**). It's necessary also some tunning, as the LEDs drivers don't work very well with all the PWM range (they are full bright above 50% already).
 
+## Acknowledgement
+To [Almu](https://github.com/almalonso) 20220601
+
 ## LICENSE
 
 This work is licensed under the [GNU General Public License v3.0](LICENSE-GPLV30). All media and data files that are not source code are licensed under the [Creative Commons Attribution 4.0 BY-SA license](LICENSE-CCBYSA40).

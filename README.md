@@ -56,7 +56,7 @@ This *new* lamp does several *new* things passing through different stages:
 * Long-touch to turn on the high-power white-only light.
 * Go to http://mylamp.local to access the control App (\*).
 
-**(\*)** The lamp must be connected to same network than the device you want to use to access this portal. If the lamp wasn't able to connect to your network, you should connect to the lamp's WiFi network itself (**MyLamp**/**12345678**).
+**(\*)** The lamp must be connected to the same network as the device you want to use to access this portal. If the lamp wasn't able to connect to your network, you should connect to the lamp's WiFi network itself (**MyLamp**/**12345678**).
 
 ![control-app](docs/app.png)
 
